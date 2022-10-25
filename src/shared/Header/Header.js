@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import './Header.css'
 
 const Header = () => {
@@ -15,15 +15,14 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="fs-5 ms-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
+                        className="ms-auto m-2 my-lg-0 text-success"
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Courses</Nav.Link>
-                        <Nav.Link href="#action3">Blog</Nav.Link>
-                        <Nav.Link to='/about'>About Us</Nav.Link>
-                        <Nav.Link to='/about'>Log In</Nav.Link>
+                        <Link className='mx-2 text-decoration-none text-success' to='/'>Home</Link>
+                        <Link className='mx-2 text-decoration-none text-success' to='/courses'>Courses</Link>
+                        <Link className='mx-2 text-decoration-none text-success' to='/blog'>Blog</Link>
+                        <Link className='mx-2 text-decoration-none text-success' to='/about'>About Us</Link>
+                        <Link className='mx-2 text-decoration-none text-success' to='/login'>Log In</Link>
 
                     </Nav>
                 </Navbar.Collapse>
