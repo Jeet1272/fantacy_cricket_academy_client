@@ -33,7 +33,7 @@ const Header = () => {
                         <Link className='mx-2 text-decoration-none text-success' to='/'>Home</Link>
                         <Link className='mx-2 text-decoration-none text-success' to='/courses'>Courses</Link>
                         <Link className='mx-2 text-decoration-none text-success' to='/blog'>Blog</Link>
-                        <Link className='mx-2 text-decoration-none text-success' to='/about'>About Us</Link>
+                        <Link className='mx-2 text-decoration-none text-success' to='/about'>FAQ</Link>
                         {
                             user ?
                                 <Link onClick={handleLogOut} className='mx-2 text-decoration-none text-success'>Log Out</Link>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import Sidenav from '../../shared/Sidenav/Sidenav';
-import CourseItem from './CourseItem';
+import Sidenav from './Sidenav/Sidenav';
+import CourseItem from './Courses/CourseItem';
 
 const Courses = () => {
     return (
