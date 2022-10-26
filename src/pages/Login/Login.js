@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -7,9 +7,10 @@ import { AuthContext } from '../../context/UserContext';
 
 
 const Login = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState('')
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -34,6 +35,15 @@ const Login = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
+            .then(result => {
+                const user = result.user
                 console.log(user)
             })
             .catch(error => console.error(error))
@@ -65,7 +75,7 @@ const Login = () => {
             </div>
             <div className="d-grid gap-3 w-25 mx-auto mb-3">
                 <p className='ms-4 mt-3'>Please log in with one of the following:</p>
-                <Button variant="dark" size="md">
+                <Button onClick={handleGithubSignIn} variant="dark" size="md">
                     Github
                 </Button>
                 <Button onClick={handleGoogleSignIn} variant="warning" size="md">

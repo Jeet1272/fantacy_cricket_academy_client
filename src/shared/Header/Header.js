@@ -1,12 +1,24 @@
-import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import React, { useContext } from 'react';
 import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './Header.css'
+import { AuthContext } from '../../context/UserContext';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => { console.error(error) })
+    }
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -22,7 +34,20 @@ const Header = () => {
                         <Link className='mx-2 text-decoration-none text-success' to='/courses'>Courses</Link>
                         <Link className='mx-2 text-decoration-none text-success' to='/blog'>Blog</Link>
                         <Link className='mx-2 text-decoration-none text-success' to='/about'>About Us</Link>
-                        <Link className='mx-2 text-decoration-none text-success' to='/login'>Log In</Link>
+                        {
+                            user ?
+                                <Link onClick={handleLogOut} className='mx-2 text-decoration-none text-success'>Log Out</Link>
+                                :
+                                <Link className='mx-2 text-decoration-none text-success' to='/login'>Log In</Link>
+
+                        }
+
+                        {
+                            user?.photoURL ?
+                                <Image style={{ height: '35px' }} roundedCircle src={user.photoURL}></Image>
+                                :
+                                <FontAwesomeIcon className='mt-1 text-success' icon={faUserAlt}></FontAwesomeIcon>
+                        }
 
                     </Nav>
                 </Navbar.Collapse>
