@@ -11,10 +11,10 @@ const Sidenav = () => {
     }, [])
     return (
         <div>
-            <p>Total Courses {courses.length}</p>
+            <p>Total Courses: {courses.length}</p>
             <div>
                 {
-                    courses.map(course => <p key={course.id}><Link>{course.name}</Link></p>)
+                    courses.map(course => <p key={course.id}><Link className='text-success' to={`/courses/${course.id}`}>{course.name}</Link></p>)
                 }
             </div>
         </div>
