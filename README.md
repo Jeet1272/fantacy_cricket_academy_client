@@ -4,7 +4,7 @@ Fantasy Cricket Academy
 
 # Website Link
 
-(fantasy-cricket-academy.web.app)
+https://fantasy-cricket-academy.web.app/
 
 # Website features and functionality.
 

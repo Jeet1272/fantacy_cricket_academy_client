@@ -6,6 +6,8 @@ import Courses from "../pages/Courses/Courses/Courses";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Checkout from "./Checkout";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +39,11 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://fantasy-cricket-academy-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '*',

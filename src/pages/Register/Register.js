@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -8,6 +8,7 @@ import { AuthContext } from '../../context/UserContext';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -22,10 +23,12 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                setErrorMessage('')
                 form.reset()
             })
             .catch(error => {
-                console.error(error)
+                const errorMessage = error.message;
+                setErrorMessage(errorMessage)
             })
     }
 
@@ -73,7 +76,7 @@ const Register = () => {
                         <Form.Control />
                     </Form.Group>
                 </Row>
-
+                <p className='text-danger'>{errorMessage}</p>
                 <Button variant="primary" type="submit">
                     Register
                 </Button>

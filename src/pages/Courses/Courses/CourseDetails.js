@@ -24,7 +24,7 @@ const CourseDetails = () => {
                     <ListGroup.Item>Views: {views}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                    <Button variant="primary"><Link className='text-white' to='/checkout' >Get premium access</Link></Button>
+                    <Button variant="primary"><Link className='text-white' to={`/checkout/${course.id}`} >Get premium access</Link></Button>
                 </Card.Body>
             </Card>
         </div>
