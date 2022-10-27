@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
+import Blog from "../pages/Blog/Blog";
 import CourseDetails from "../pages/Courses/Courses/CourseDetails";
 import Courses from "../pages/Courses/Courses/Courses";
 import Home from "../pages/Home/Home";
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
                 path: '/courses/:id',
                 element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => fetch(`https://fantasy-cricket-academy-server.vercel.app/courses/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '/login',

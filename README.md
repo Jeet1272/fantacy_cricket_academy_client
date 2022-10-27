@@ -1,3 +1,19 @@
+# Website Name 
+
+Fantasy Cricket Academy
+
+# Website Link
+
+(fantasy-cricket-academy.web.app)
+
+# Website features and functionality.
+
+* Cricket learning tutorial
+* Login Authentication
+* Private Route
+* Blog
+* FAQ
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
